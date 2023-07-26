@@ -1,0 +1,16 @@
+{
+  "name": "project-node-jasmine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine-browser-runner serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine-browser-runner": "^2.1.0",
+    "jasmine-core": "^5.1.0"
+  }
+}
