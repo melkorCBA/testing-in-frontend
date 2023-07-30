@@ -61,6 +61,52 @@ describe('componet: LoginAsync - async with jasmine way - done ', () => {
   });
 });
 
+describe('componet: LoginAsync - async with angualr way - async test zone async/wait', () => {
+  let componet: LoginAsyncComponent;
+  let debugElement: DebugElement;
+  let authService: AuthService;
+  let fixture: ComponentFixture<LoginAsyncComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [LoginAsyncComponent],
+      providers: [AuthService],
+    });
+
+    fixture = TestBed.createComponent(LoginAsyncComponent);
+    componet = fixture.componentInstance;
+    debugElement = fixture.debugElement.query(By.css('a'));
+    authService = TestBed.inject(AuthService);
+  });
+
+  it('should show as login when user is not authenticated', waitForAsync(async () => {
+    componet.isLoggedIn = true;
+    fixture.detectChanges();
+    spyOn(authService, 'isAuthenticatedAsync').and.returnValue(
+      Promise.resolve(false)
+    );
+    componet.ngOnInit();
+
+    await fixture.whenStable();
+    fixture.detectChanges();
+    const text = (debugElement.nativeElement as HTMLAnchorElement).text;
+    expect(text).toBe('Login');
+  }));
+  it('should show as logout when user is  authenticated', waitForAsync(async () => {
+    componet.isLoggedIn = false;
+    fixture.detectChanges();
+    spyOn(authService, 'isAuthenticatedAsync').and.returnValue(
+      Promise.resolve(true)
+    );
+    componet.ngOnInit();
+
+    await fixture.whenStable();
+    fixture.detectChanges();
+    const text = (debugElement.nativeElement as HTMLAnchorElement).text;
+    expect(text).toBe('Logout');
+  }));
+});
+
 describe('componet: LoginAsync - async with angualr way - async test zone ', () => {
   let componet: LoginAsyncComponent;
   let debugElement: DebugElement;
