@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jasmine-browser-runner serve"
+    "test": "jasmine",
+    "test-browser": "jasmine-browser-runner serve"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "jasmine": "^5.1.0",
     "jasmine-browser-runner": "^2.1.0",
-    "jasmine-core": "^5.1.0"
+    "jsdom": "^22.1.0"
   }
 }

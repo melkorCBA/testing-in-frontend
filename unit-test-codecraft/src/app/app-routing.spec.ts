@@ -24,9 +24,9 @@ describe('Routing: App', () => {
     router.initialNavigation();
   });
 
-  it('index route should navigate to login', waitForAsync(async () => {
+  it('index route should ridirected to login', waitForAsync(async () => {
     router.navigate(['']);
     await fixture.whenStable();
-    expect(location.path()).toBe('/login');
+    expect(location.path()).withContext('ridirected path').toBe('/login');
   }));
 });

@@ -68,7 +68,7 @@ describe('Component: Login - with mocks with overrides', () => {
   });
 });
 
-describe('Component: Login - with mocks with spies', () => {
+describe('Component: Login - with mocks', () => {
   let component: LoginComponent;
   let authService: AuthService;
 
@@ -89,6 +89,32 @@ describe('Component: Login - with mocks with spies', () => {
   });
   it('isLoggedIn should return true when user is authenticated', () => {
     spyOn(authService, 'isAuthenticated').and.returnValue(true);
+    expect(component?.isLoggedIn()).toBeTruthy();
+    expect(authService.isAuthenticated).toHaveBeenCalled();
+  });
+});
+
+describe('Component: Login - with spies', () => {
+  let component: LoginComponent;
+  let authService: jasmine.SpyObj<AuthService>;
+
+  beforeEach(() => {
+    authService = jasmine.createSpyObj('AuthService', ['isAuthenticated']);
+    component = new LoginComponent(authService);
+  });
+
+  afterEach(() => {
+    (authService as any) = null;
+    (component as any) = null;
+  });
+
+  it('isLoggedIn should return false when user is not authenticated', () => {
+    authService.isAuthenticated.and.returnValue(false);
+    expect(component?.isLoggedIn()).toBeFalsy();
+    expect(authService.isAuthenticated).toHaveBeenCalled();
+  });
+  it('isLoggedIn should return true when user is authenticated', () => {
+    authService.isAuthenticated.and.returnValue(true);
     expect(component?.isLoggedIn()).toBeTruthy();
     expect(authService.isAuthenticated).toHaveBeenCalled();
   });
