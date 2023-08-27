@@ -8,10 +8,10 @@ module.exports = function (config) {
 
     // frameworks to use
     // available frameworks: https://www.npmjs.com/search?q=keywords:karma-adapter
-    frameworks: ["jasmine"],
+    frameworks: ["jasmine", "browserify"],
 
     // list of files / patterns to load in the browser
-    files: ["src/*.js", "spec/*.js"],
+    files: ["src/*.?(m)js", "spec/*.?(m)js"],
 
     // list of files / patterns to exclude
     exclude: [],
@@ -19,8 +19,8 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://www.npmjs.com/search?q=keywords:karma-preprocessor
     preprocessors: {
-      "src/**/*.js": ["babel"],
-      "spec/**/*.js": ["babel"],
+      "src/**/*.?(m)js": ["browserify"],
+      "spec/**/*.?(m)js": ["browserify"],
     },
 
     // test results reporter to use
@@ -52,12 +52,10 @@ module.exports = function (config) {
     // Concurrency level
     // how many browser instances should be started simultaneously
     concurrency: Infinity,
-    plugins: [
-      "karma-jasmine",
-      "karma-chrome-launcher",
-      "@babel/core",
-      "@babel/preset-env",
-      "@babel/register",
-    ],
+    browserify: {
+      debug: true,
+      transform: ["browserify-shim"],
+    },
+    plugins: ["karma-jasmine", "karma-browserify", "karma-chrome-launcher"],
   });
 };
