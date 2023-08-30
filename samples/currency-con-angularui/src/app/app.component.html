@@ -1,0 +1,11 @@
+<div style="text-align: center; padding: 20px">
+  <h1>Currency Converter</h1>
+  <app-currency-input
+    (onClick)="onClick($event)"
+    [buttonText]="buttonText"
+  ></app-currency-input>
+  <app-currency-table
+    [usdAmount]="usdAmount"
+    [euroAmount]="euroAmount"
+  ></app-currency-table>
+</div>

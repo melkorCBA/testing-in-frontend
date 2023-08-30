@@ -1,0 +1,10 @@
+<div>
+  <label for="fromAmount">From (LKR)</label>
+  <input
+    type="number"
+    id="fromAmount"
+    [(ngModel)]="lkrAmount"
+    style="padding: 5px; width: 100px"
+  />
+  <button (click)="handleConvert()">{{ buttonText }}</button>
+</div>

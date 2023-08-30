@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currency Converter (VanilaJS)</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="container">
+      <h1>Currency Converter</h1>
+      <label for="fromAmount">From (LKR)</label>
+      <input type="number" id="fromAmount" />
+      <button id="convertBtn">Convert</button>
+      <table>
+        <tr>
+          <th>Currency</th>
+          <th>Amount</th>
+        </tr>
+        <tr>
+          <td>USA Dollar</td>
+          <td id="usdAmount"></td>
+        </tr>
+        <tr>
+          <td>Euro</td>
+          <td id="euroAmount"></td>
+        </tr>
+      </table>
+    </div>
+
+    <script src="conversion.service.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
