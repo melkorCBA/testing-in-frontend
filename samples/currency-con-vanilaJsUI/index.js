@@ -17,7 +17,7 @@ const handleConvert = () => {
   }
 };
 
-const handleclear = () => {
+const handleClear = () => {
   fromAmountInput.value = "";
   usdAmountCell.textContent = "";
   euroAmountCell.textContent = "";
@@ -31,6 +31,6 @@ convertBtn.addEventListener("click", function ($event) {
     $event.preventDefault();
     return;
   }
-  handleclear();
+  handleClear();
   $event.preventDefault();
 });
