@@ -31,6 +31,6 @@ convertBtn.addEventListener("click", function ($event) {
     $event.preventDefault();
     return;
   }
-  clearHandler();
+  handleclear();
   $event.preventDefault();
 });
