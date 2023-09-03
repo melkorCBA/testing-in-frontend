@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ConversionService } from './services/conversion.service';
 
 @Component({
   selector: 'app-root',
@@ -7,36 +6,32 @@ import { ConversionService } from './services/conversion.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  usdAmount: number | null;
-  euroAmount: number | null;
-  lkrAmount: number | null;
+  usdAmount?: number;
+  euroAmount?: number;
+  lkrAmount: number;
   buttonText = 'Convert';
 
-  constructor(private conversionService: ConversionService) {}
+  constructor() {}
 
-  onClick(lkrAmount: number) {
+  onClick() {
     if (this.buttonText === 'Convert') {
-      this.handleConvert(lkrAmount);
+      this.handleConvert();
       return;
     }
     this.handleClear();
   }
-  handleConvert(lkrAmount: number) {
-    if (!isNaN(lkrAmount)) {
-      this.usdAmount = parseFloat(
-        this.conversionService.convertFromLKR(lkrAmount, 'USD')
-      );
-      this.euroAmount = parseFloat(
-        this.conversionService.convertFromLKR(lkrAmount, 'EURO')
-      );
+  handleConvert() {
+    if (!isNaN(this.lkrAmount)) {
+      this.usdAmount = +(this.lkrAmount / 200).toFixed(2);
+      this.euroAmount = +(this.lkrAmount / 230).toFixed(2);
       this.buttonText = 'Clear';
     }
   }
 
   handleClear() {
-    this.usdAmount = null;
-    this.euroAmount = null;
-    this.lkrAmount = null;
+    this.usdAmount = 0;
+    this.euroAmount = 0;
+    this.lkrAmount = 0;
     this.buttonText = 'Convert';
   }
 }
