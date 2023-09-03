@@ -32,5 +32,5 @@ convertBtn.addEventListener("click", function ($event) {
     return;
   }
   clearHandler();
-  $event.handleclear();
+  $event.preventDefault();
 });
