@@ -1,0 +1,82 @@
+.cart-container {
+  margin-left: 20px;
+  .item-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 1px 40px;
+  width: 20vw;
+  &.cart-total {
+    border: 2px solid rgba($color: #314d6b, $alpha: 0.1);
+    padding: 5px;
+    border-radius: 5%;
+    font-weight: 700;
+  }
+}
+
+.shipping-info-container form {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  div {
+    display: flex;
+    margin: 10px 40px;
+    justify-content: space-between;
+  }
+}
+
+.action-container {
+  display: flex;
+  width: 20vw;
+  gap: 10px;
+  margin: 10px 40px;
+  button {
+    margin-top: 40px;
+    border-radius: 5%;
+    width: 5vw;
+    &.btn-success {
+      background-color: #314d6b;
+      color: rgb(235 239 255);
+      &:hover {
+        background-color: #46617f;
+        color: rgb(235 239 255);
+      }
+      width: 10vw;
+    }
+    &.btn-failure {
+      background-color: rgb(235 239 255);
+      color: #314d6b;
+      &:hover {
+        background-color: rgb(245, 246, 251);
+        color: #314d6b;
+      }
+    }
+  }
+}
+
+input,
+textarea.ng-touched.ng-invalid {
+  &.error-input {
+    border: 1px solid red;
+  }
+}
+
+.validation-message {
+  //   width: 40vw !important;
+  font-size: smaller;
+  justify-content: end !important;
+  margin: 0px 40px !important;
+  color: red;
+  //   padding: 0px 0px !important;
+}
+
+.complete-order {
+  font-size: small;
+  font-weight: 700;
+  justify-content: end !important;
+  margin: 20px 40px !important;
+}

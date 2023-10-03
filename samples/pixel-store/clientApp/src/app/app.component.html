@@ -1,0 +1,27 @@
+<!-- <nav class="topnav">
+  <ul>
+    <a href="">Pixel Store</a>
+  </ul>
+  <ul>
+    <a [routerLink]="['/cart']">Cart</a>
+  </ul>
+</nav> -->
+
+<nav class="navbar">
+  <!-- LOGO -->
+  <div class="logo">
+    <img src="../assets/logo-google.png" alt="logo" />
+    <span>Pixel Store</span>
+  </div>
+
+  <!-- NAVIGATION MENU -->
+  <ul class="nav-links">
+    <!-- NAVIGATION MENUS -->
+    <div class="menu">
+      <li><a routerLink="/">Store</a></li>
+      <li><a [routerLink]="['/cart']">Cart</a></li>
+    </div>
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>

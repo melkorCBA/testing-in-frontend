@@ -1,0 +1,48 @@
+<div class="cart-container">
+  <h2>Order</h2>
+  <h3>Order Items</h3>
+  <div class="item-container">
+    <div *ngFor="let item of order.products" class="cart-item">
+      <p>{{ item.product.name }} ({{ item.quantity }})</p>
+
+      <p>{{ item.product.price * item.quantity }} $</p>
+    </div>
+    <div class="cart-item cart-total">
+      <p>Total</p>
+      <p>{{ total }} $</p>
+    </div>
+  </div>
+  <h3>Shipping Info</h3>
+  <div class="shipping-info-container">
+    <form [formGroup]="orderForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          [ngClass]="{ 'error-input': showValidationMessage }"
+          formControlName="name"
+          type="text"
+          name="name"
+          id=""
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="shippingAddress">Shipping Address</label>
+        <textarea
+          [ngClass]="{ 'error-input': showValidationMessage }"
+          formControlName="shippingAddress"
+          maxlength="256"
+          name="shippingAddress"
+        ></textarea>
+      </div>
+    </form>
+    <div *ngIf="showValidationMessage" class="validation-message">
+      Please fill the shipping info!
+    </div>
+  </div>
+  <div *ngIf="pendingOrder" class="action-container">
+    <button (click)="clear()" class="btn-failure">Clear</button>
+    <button (click)="placeOrder()" class="btn-success">Place Order</button>
+  </div>
+  <div *ngIf="!pendingOrder" class="complete-order">Your Order in Placed!</div>
+</div>

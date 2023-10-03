@@ -1,0 +1,15 @@
+<div class="list-container">
+  <div *ngFor="let product of products">
+    <h5>{{ product.name }}</h5>
+    <img [src]="'../../../assets/pixels/' + product.image" />
+    <p>{{ product.price }}$</p>
+    <div class="action-container">
+      <button
+        (click)="addToCart(product._id)"
+        class="btn-success btn-addToCart"
+      >
+        Add To Cart
+      </button>
+    </div>
+  </div>
+</div>
